@@ -7,7 +7,6 @@ const findAll = async () => {
 
 const findById = async (id) => {
   const product = await productModel.findById(id);
-
   return product;
 };
 
