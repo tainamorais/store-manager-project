@@ -64,9 +64,14 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-03-21T20:39:25.043Z",
-    "modified": "2023-03-21T20:39:25.043Z",
+    "modified": "2023-03-22T10:29:03.723Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "  {\n    \"name\": \"Capa da invisibilidade\"\n  }",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -109,6 +114,25 @@
     "modified": "2023-03-21T21:04:21.178Z",
     "headers": [],
     "params": [],
+    "tests": []
+  },
+  {
+    "_id": "b08cb98e-2366-4f09-aaef-b72bbfa8d10c",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/products/",
+    "url": "http://localhost:3001/products/",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-03-22T09:59:12.481Z",
+    "modified": "2023-03-22T10:48:23.240Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "  {\n    \n  }",
+      "form": []
+    },
     "tests": []
   }
 ]

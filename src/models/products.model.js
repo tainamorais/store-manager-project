@@ -15,4 +15,12 @@ const findById = async (id) => {
   return product;
 };
 
-module.exports = { findAll, findById };
+const create = async ({ name }) => {
+  const [productCreated] = await connection.execute(
+    'INSERT INTO StoreManager.products (name) VALUES (?)', [name],
+  );
+
+  return { id: productCreated.insertId, name };
+};
+
+module.exports = { findAll, findById, create };

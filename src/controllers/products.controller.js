@@ -1,4 +1,5 @@
 const productService = require('../services/products.service');
+const errorMap = require('../utils/errorMap');
 
 const findAll = async (_req, res) => {
   const products = await productService.findAll();
@@ -17,4 +18,22 @@ const findById = async (req, res) => {
   res.status(200).json(product);
 };
 
-module.exports = { findAll, findById };
+// REQ. 03 Função create de caminho feliz, sem validações
+// const create = async (req, res) => {
+//   const { name } = req.body;
+//   const newProduct = await productService.create({ name });
+//   res.status(201).json(newProduct);
+// };
+
+// Tive que criar as validações e ajustar a função aqui para receber os erros
+const create = async (req, res) => {
+  const { name } = req.body;
+
+  const { type, message } = await productService.create({ name });
+
+  if (type) return res.status(errorMap.mapError(type)).json({ message });
+
+  return res.status(201).json(message);
+};
+
+module.exports = { findAll, findById, create };
