@@ -64,9 +64,14 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-03-21T20:39:25.043Z",
-    "modified": "2023-03-22T11:07:23.968Z",
+    "modified": "2023-03-22T13:10:31.230Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Cálice de fogo\"\n}",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -120,12 +125,50 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-03-22T09:59:12.481Z",
-    "modified": "2023-03-22T10:48:23.240Z",
+    "modified": "2023-03-22T13:10:27.905Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "  {\n    \n  }",
+      "raw": "{\n  \"name\": \"Cálice de fogo\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "562a47f3-01af-4361-9c2a-ffcb217cbc9d",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/products/4",
+    "url": "http://localhost:3001/products/4",
+    "method": "DELETE",
+    "sortNum": 0,
+    "created": "2023-03-22T13:10:37.996Z",
+    "modified": "2023-03-22T13:10:37.996Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Cálice de fogo\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "44d0290e-25a7-4860-9e37-f3067f3a3d12",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/products/4",
+    "url": "http://localhost:3001/products/4",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-03-22T13:10:45.330Z",
+    "modified": "2023-03-22T13:10:45.330Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Cálice de fogo\"\n}",
       "form": []
     },
     "tests": []

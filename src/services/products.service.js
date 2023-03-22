@@ -29,4 +29,18 @@ const create = async ({ name }) => {
   return ({ type: null, message: newProduct });
 };
 
-module.exports = { findAll, findById, create };
+const remove = async (id) => {
+  // Necessário consultar no DB a existência do id
+  const isProductIdValid = await productModel.findById(id);
+
+  // Caso não exista:
+  if (!isProductIdValid) {
+    return { type: 'NOT_FOUND', message: 'Product not found' };
+  }
+
+  await productModel.remove(id);
+
+  return ({ type: null, message: '' });
+};
+
+module.exports = { findAll, findById, create, remove };

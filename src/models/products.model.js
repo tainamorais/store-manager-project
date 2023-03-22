@@ -23,4 +23,11 @@ const create = async ({ name }) => {
   return { id: productCreated.insertId, name };
 };
 
-module.exports = { findAll, findById, create };
+const remove = async (id) => {
+  const [result] = await connection.execute(
+    'DELETE FROM StoreManager.products WHERE id = ?', [id],
+  );
+  return result;
+};
+
+module.exports = { findAll, findById, create, remove };
