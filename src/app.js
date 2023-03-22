@@ -20,6 +20,12 @@ app.use('/sales', saleRoutes);
 module.exports = app;
 
 /*
-Mentoria destravando requisito 06
+Mentoria destravando requisito 06 (35)
 https://app.betrybe.com/learn/course/5e938f69-6e32-43b3-9685-c936530fd326/live-lectures/f87fd08a-6753-44b4-a654-3dbaaca898f4/recording/52662149-bc68-4060-9daa-a3115dc0ac33
+
+Consulta para cadastro de dados em array - Req 06 também
+https://app.betrybe.com/learn/course/5e938f69-6e32-43b3-9685-c936530fd326/live-lectures/3013dcdc-9314-44e3-8df6-8f7c37e64bcd/recording/d4ff6eea-2acc-41b2-be7b-c76f08ded305
+
+Consulta configuração inicial:
+https://app.betrybe.com/learn/course/5e938f69-6e32-43b3-9685-c936530fd326/live-lectures/3013dcdc-9314-44e3-8df6-8f7c37e64bcd/recording/cfdd743e-379d-4f56-8b21-4d89ca44449e
 */

@@ -43,4 +43,26 @@ const remove = async (id) => {
   return ({ type: null, message: '' });
 };
 
-module.exports = { findAll, findById, create, remove };
+const update = async (id, { name }) => {
+  // Necessário consultar no DB a existência do id
+  const isProductIdValid = await productModel.findById(id);
+
+  // Caso não exista:
+  if (!isProductIdValid) {
+    return { type: 'NOT_FOUND', message: 'Product not found' };
+  }
+
+  // Validador de campos de name
+  const error = validator.createProductValidator({ name });
+  if (error.type) return error;
+
+  // retirei de const, não farei nada com a informação que retorna de model
+  await productModel.update(id, { name });
+  // Tive que consultar de novo, pois não estava conseguindo o retorno do objeto desejado
+  const searchUpdatedProduct = await productModel.findById(id);
+  // console.log(searchUpdatedProduct);
+
+  return ({ type: null, message: searchUpdatedProduct });
+};
+
+module.exports = { findAll, findById, create, remove, update };

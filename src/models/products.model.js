@@ -32,4 +32,26 @@ const remove = async (id) => {
   return result;
 };
 
-module.exports = { findAll, findById, create, remove };
+const update = async (id, { name }) => {
+  const [product] = await connection.execute(
+    'UPDATE StoreManager.products SET name = ? WHERE id = ?', [name, id],
+  );
+  // console.log usado para ver retorno da função para realizar teste
+  // console.log(product);
+  return ({ id, ...product });
+};
+
+module.exports = { findAll, findById, create, remove, update };
+
+/*
+Esse é o retorno da função update em model - usar em testes
+ResultSetHeader {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 0,
+  info: 'Rows matched: 1  Changed: 0  Warnings: 0',
+  serverStatus: 2,
+  warningStatus: 0,
+  changedRows: 0
+}
+*/

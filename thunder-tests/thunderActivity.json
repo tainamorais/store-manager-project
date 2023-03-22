@@ -22,9 +22,14 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-03-21T20:22:36.045Z",
-    "modified": "2023-03-21T20:22:36.045Z",
+    "modified": "2023-03-22T20:54:26.839Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"id\": 3,\n  \"name\": \"Escudo do Capitão Estadunidense\"\n}",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -64,12 +69,12 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-03-21T20:39:25.043Z",
-    "modified": "2023-03-22T13:10:31.230Z",
+    "modified": "2023-03-22T20:57:58.029Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Cálice de fogo\"\n}",
+      "raw": "{\n  \"name\": \"Escudo do Capitão Estadunidense\"\n}",
       "form": []
     },
     "tests": []
@@ -97,9 +102,14 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-03-21T20:52:20.067Z",
-    "modified": "2023-03-21T20:52:20.067Z",
+    "modified": "2023-03-22T20:58:04.790Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Escudo do Capitão Estadunidense\"\n}",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -302,6 +312,63 @@
     "body": {
       "type": "json",
       "raw": "{\n  \"name\": \"Cálice de fogo\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "7dbbb2ac-fc93-4147-a22a-3586ab5b4b1e",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/products/2",
+    "url": "http://localhost:3001/products/2",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2023-03-22T20:33:10.360Z",
+    "modified": "2023-03-22T21:41:24.561Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Es \"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "e86110cf-413d-4ef7-8a6c-c3284414416b",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/products/5",
+    "url": "http://localhost:3001/products/5",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2023-03-22T20:33:22.528Z",
+    "modified": "2023-03-22T20:33:22.528Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Vestimenta de encolhimento\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "07aba49e-06ca-41ed-8600-1d8196248617",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/products/7",
+    "url": "http://localhost:3001/products/7",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2023-03-22T20:43:43.814Z",
+    "modified": "2023-03-22T20:43:43.814Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Roupa de encolhimento\"\n}",
       "form": []
     },
     "tests": []
