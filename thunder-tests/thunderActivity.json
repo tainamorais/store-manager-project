@@ -64,14 +64,9 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-03-21T20:39:25.043Z",
-    "modified": "2023-03-22T10:29:03.723Z",
+    "modified": "2023-03-22T11:07:23.968Z",
     "headers": [],
     "params": [],
-    "body": {
-      "type": "json",
-      "raw": "  {\n    \"name\": \"Capa da invisibilidade\"\n  }",
-      "form": []
-    },
     "tests": []
   },
   {
