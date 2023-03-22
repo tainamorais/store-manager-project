@@ -14,6 +14,7 @@ const findById = async (req, res) => {
   // Apontamento de erro de teste, tentar refatorar depois
   if (sale.length === 0) return res.status(404).json({ message: 'Sale not found' });
 
+  // console.log(sale);
   res.status(200).json(sale);
 };
 

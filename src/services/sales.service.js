@@ -7,6 +7,8 @@ const findAll = async () => {
 
 const findById = async (id) => {
   const sale = await saleModel.findById(id);
+  // Console para testar retorno da função para teste
+  // console.log(sale);
   return sale;
 };
 

@@ -286,5 +286,24 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "7d4f301b-bd9e-453d-a1dd-af39be29af31",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/sales/9",
+    "url": "http://localhost:3001/sales/9",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-03-22T19:34:11.782Z",
+    "modified": "2023-03-22T19:34:11.782Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Cálice de fogo\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]

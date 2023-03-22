@@ -20,7 +20,8 @@ const findById = async (id) => {
   const [sale] = await connection.execute(
     `${SELECT}${FROM}${INNER_JOIN} WHERE sale_id = ?`, [id],
   );
-
+  // Console para testar retorno da função para teste
+  // console.log(sale);
   return sale;
 };
 

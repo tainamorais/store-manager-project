@@ -35,7 +35,7 @@ const ResultSetHeader = {
 
 describe('Testando a camada service de produtos', function () {
 
-  describe('Testando as funções GET relacionads a produtos', function () {
+  describe('Testando as funções GET relacionadas a produtos', function () {
 
     it('Recuperando a lista dos produtos cadastrados', async function () {
       sinon.stub(productModel, 'findAll').resolves(products);
