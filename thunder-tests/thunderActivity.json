@@ -191,5 +191,100 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "7c78d667-28f6-4abd-95d1-dfaaed0cbbef",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/sales",
+    "url": "http://localhost:3001/sales",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-03-22T17:49:00.856Z",
+    "modified": "2023-03-22T17:49:00.856Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Cálice de fogo\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "19df2b3d-4ad2-4b6e-bc15-12b36e9aa74d",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/sales/1",
+    "url": "http://localhost:3001/sales/1",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-03-22T17:49:40.593Z",
+    "modified": "2023-03-22T17:49:40.593Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Cálice de fogo\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "62dcaf8f-2c5a-44e4-959b-e24e01e4a75a",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/sales/2",
+    "url": "http://localhost:3001/sales/2",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-03-22T17:52:16.701Z",
+    "modified": "2023-03-22T17:52:16.701Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Cálice de fogo\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "b6c9b4fe-42cd-458e-b352-05ad0d523d30",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/sales/3",
+    "url": "http://localhost:3001/sales/3",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-03-22T17:52:21.336Z",
+    "modified": "2023-03-22T17:52:21.336Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Cálice de fogo\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "84afa1c6-86ea-4b36-b05e-982d63e8789e",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/sales/",
+    "url": "http://localhost:3001/sales/",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-03-22T18:01:42.389Z",
+    "modified": "2023-03-22T18:01:42.389Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Cálice de fogo\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]

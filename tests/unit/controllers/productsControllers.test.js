@@ -151,7 +151,6 @@ describe('Testando a camada controller de produtos', function () {
       const req = { params: { id: 11 } };
 
       res.status = sinon.stub().returns(res);
-      // Fiquei horas tentando descobrir o erro de end e vi na função que retorna end e não json
       res.json = sinon.stub().returns();
       sinon
         .stub(productService, 'remove')
