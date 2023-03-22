@@ -27,6 +27,8 @@ const remove = async (id) => {
   const [result] = await connection.execute(
     'DELETE FROM StoreManager.products WHERE id = ?', [id],
   );
+  // console.log usado para ver retorno da função para realizar teste
+  // console.log(result);
   return result;
 };
 

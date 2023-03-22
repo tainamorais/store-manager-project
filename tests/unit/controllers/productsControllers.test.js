@@ -21,6 +21,9 @@ const jsonOkCreatedProduct = { type: null, message: createdProduct };
 const jsonInvalidProductName = { type: "INVALID_VALUE", message: '"name" length must be at least 5 characters long' };
 const jsonNoFieldProductName = { type: "REQUIRED_VALUE", message: '"name" is required' };
 
+const jsonOkDeletedProduct = { type: null, message: "" };
+const jsonInvalidProductId = { type: "NOT_FOUND", message: "Product not found" }
+
 describe('Testando a camada controller de produtos', function () {
 
   describe('Testando as funções GET relacionadas a produtos', function () {
@@ -125,8 +128,49 @@ describe('Testando a camada controller de produtos', function () {
 
   });
 
+  describe('Testando as funções DELETE relacionadas a produtos', function () {
+
+    it('Deletando um produto do DB através de seu id', async function () {
+      const res = {};
+      const req = { params: { id: 2 } };
+
+      res.status = sinon.stub().returns(res);
+      // Fiquei horas tentando descobrir o erro de end e vi na função que retorna end e não json
+      res.end = sinon.stub().returns();
+      sinon
+        .stub(productService, 'remove')
+        .resolves(jsonOkDeletedProduct);
+
+      await productController.remove(req, res);
+
+      expect(res.status).to.have.been.calledWith(204);
+    });
+
+    it('Testando erro ao tentar deletar um produto com um id inexistente no DB', async function () {
+      const res = {};
+      const req = { params: { id: 11 } };
+
+      res.status = sinon.stub().returns(res);
+      // Fiquei horas tentando descobrir o erro de end e vi na função que retorna end e não json
+      res.json = sinon.stub().returns();
+      sinon
+        .stub(productService, 'remove')
+        .resolves(jsonInvalidProductId);
+
+      await productController.remove(req, res);
+
+      expect(res.status).to.have.been.calledWith(404);
+    });
+
+  });
+
   afterEach(function () {
     sinon.restore();
   });
 
 });
+
+/*
+Base de consulta: mentoria turma 24
+https://app.betrybe.com/learn/course/5e938f69-6e32-43b3-9685-c936530fd326/live-lectures/3013dcdc-9314-44e3-8df6-8f7c37e64bcd/recording/1a7a4afb-37e7-4a9c-9dc2-45e4716f5b68
+*/
