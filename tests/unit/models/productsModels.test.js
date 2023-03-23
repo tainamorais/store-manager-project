@@ -22,6 +22,17 @@ const ResultSetHeader = {
   warningStatus: 0
 };
 
+// Objeto de retorno quando função update é acionada na camada models
+const ResultSetHeaderUpdate = {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 0,
+  info: 'Rows matched: 1  Changed: 1  Warnings: 0',
+  serverStatus: 2,
+  warningStatus: 0,
+  changedRows: 1
+};
+
 describe('Testando a camada model de produtos', function () {
 
   describe('Testando as funções GET relacionadas a produtos', function () {
@@ -56,6 +67,17 @@ describe('Testando a camada model de produtos', function () {
       sinon.stub(connection, 'execute').resolves([ResultSetHeader]);
       const result = await productModel.remove(2);
       expect(result.affectedRows).to.be.equal(1);
+    });
+
+  });
+
+  describe('Testando as funções UPDATE relacionadas a produtos', function () {
+
+    it('Atualizando informações de um produto através de seu id', async function () {
+      sinon.stub(connection, 'execute').resolves([ResultSetHeaderUpdate]);
+      const result = await productModel.update(2, insertProduct);
+      expect(result.affectedRows).to.be.equal(1);
+      expect(result.changedRows).to.be.equal(1);
     });
 
   });

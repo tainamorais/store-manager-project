@@ -163,6 +163,55 @@ describe('Testando a camada controller de produtos', function () {
 
   });
 
+  describe('Testando as funções UPDATE relacionadas a produtos', function () {
+
+    it('Atualizando informações de um produto através de seu id', async function () {
+      const res = {};
+      const req = { params: { id: 3 }, body: insertProduct };
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+      sinon
+        .stub(productService, 'update')
+        .resolves(jsonOkCreatedProduct);
+
+      await productController.update(req, res);
+
+      expect(res.status).to.have.been.calledWith(200);
+    });
+
+    it('Testando erro ao tentar atualizar um produto com um id inexistente no DB', async function () {
+      const res = {};
+      const req = { params: { id: 11 }, body: insertProduct };
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+      sinon
+        .stub(productService, 'update')
+        .resolves(jsonInvalidProductId);
+
+      await productController.update(req, res);
+
+      expect(res.status).to.have.been.calledWith(404);
+    });
+
+    it('Testando erro ao tentar atualizar um produto com name com menos de 5 caracteres', async function () {
+      const res = {};
+      const req = { params: { id: 3 }, body: insertInvalidProductName };
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+      sinon
+        .stub(productService, 'update')
+        .resolves(jsonInvalidProductName);
+
+      await productController.update(req, res);
+
+      expect(res.status).to.have.been.calledWith(422);
+    });
+    
+  });
+
   afterEach(function () {
     sinon.restore();
   });

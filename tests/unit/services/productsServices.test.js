@@ -10,6 +10,7 @@ const product = { id: 2, name: 'Martelo' };
 
 const insertProduct = { name: 'Pedra filosofal' };
 const createdProduct = { id: 3, name: 'Pedra filosofal' };
+// const updatedProduct = { id: 3, name: 'Pedra filosofal' };
 
 const insertInvalidProductName = { name: 'Pe' };
 const insertNoProductName = {};
@@ -31,6 +32,17 @@ const ResultSetHeader = {
   info: '',
   serverStatus: 2,
   warningStatus: 0
+};
+
+// Objeto de retorno quando função update é acionada na camada models
+const ResultSetHeaderUpdate = {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 0,
+  info: 'Rows matched: 1  Changed: 1  Warnings: 0',
+  serverStatus: 2,
+  warningStatus: 0,
+  changedRows: 1
 };
 
 describe('Testando a camada service de produtos', function () {
@@ -100,6 +112,36 @@ describe('Testando a camada service de produtos', function () {
       const { type, message } = result;
       expect(type).to.be.equal(invalidIdType);
       expect(message).to.be.equal(invalidIdMessage);
+    });
+
+  });
+
+  describe('Testando as funções UPDATE relacionadas a produtos', function () {
+
+    it('Atualizando informações de um produto através de seu id', async function () {
+      sinon.stub(productModel, 'update').resolves(ResultSetHeaderUpdate);
+      // estava dando erro, funcionou fazendo stub desta função também, estava vindo outro objeto
+      sinon.stub(productModel, 'findById').resolves(createdProduct);
+      const result = await productService.update(3, insertProduct);
+      const { type, message } = result;
+      expect(type).to.be.equal(null);
+    });
+
+    it('Testando erro ao tentar atualizar um produto com um id inexistente no DB', async function () {
+      sinon.stub(productModel, 'update').resolves(undefined);
+      const result = await productService.update(11, insertProduct);
+      const { type, message } = result;
+      expect(type).to.be.equal(invalidIdType);
+      expect(message).to.be.equal(invalidIdMessage);
+    });
+
+    it('Testando erro ao tentar atualizar um produto com name com menos de 5 caracteres', async function () {
+      // função semelhante a create com name inválido
+      sinon.stub(productModel, 'update').resolves();
+      const result = await productService.update(3, insertInvalidProductName);
+      const { type, message } = result;
+      expect(type).to.be.equal(invalidNameType);
+      expect(message).to.be.equal(invalidNameMessage);
     });
 
   });
