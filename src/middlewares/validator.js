@@ -13,4 +13,17 @@ const createProductValidator = ({ name }) => {
   return { type: null, message: '' };
 };
 
-module.exports = { createProductValidator };
+const createSaleValidator = (sale) => {
+  const { error } = schemas.createSaleSchema.validate(sale);
+
+  if (error) {
+    if (error.message.includes('required')) {
+      return { type: 'REQUIRED_VALUE', message: error.message };
+    }
+    return { type: 'INVALID_VALUE', message: error.message };
+  }
+
+  return { type: null, message: '' };
+};
+
+module.exports = { createProductValidator, createSaleValidator };

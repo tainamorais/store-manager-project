@@ -25,25 +25,33 @@ const findById = async (id) => {
   return sale;
 };
 
-// Trabalhando no requisito 06 (assistindo vídeos)
-// const create = async (productId, quantity) => {
-//   const [saleCreated] = await connection.execute(
-//     'INSERT INTO StoreManager.sales_products (product_id, quantity) VALUES (?, ?)',
-//     [productId, quantity],
-//   );
+const generateSale = async () => {
+  const [createdSale] = await connection.execute(
+    'INSERT INTO StoreManager.sales (date) VALUES (NOW())',
+  );
+  return createdSale.insertId;
+};
 
-//   return {
-//     id: saleCreated.insertId,
-//     itemsSold: [
-//       {
-//         productId,
-//         quantity,
-//       },
-//     ],
-//   };
-// };
+const create = async (saleId, productId, quantity) => {
+  await connection.execute(
+    'INSERT INTO StoreManager.sales_products (sale_id, product_id, quantity) VALUES (?, ?, ?)',
+    [saleId, productId, quantity],
+  );
+  // return saleCreated.insertId;
 
-module.exports = { findAll, findById };
+  // Está retornando array quando vai para service, não consegui transformar em objeto de forma alguma
+  return ({
+    id: saleId,
+    itemsSold: [
+      {
+        productId,
+        quantity,
+      },
+    ],
+  });
+};
+
+module.exports = { findAll, findById, generateSale, create };
 
 // inserção
 /*

@@ -211,12 +211,12 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-03-22T17:49:00.856Z",
-    "modified": "2023-03-22T17:49:00.856Z",
+    "modified": "2023-03-23T16:45:38.272Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Cálice de fogo\"\n}",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 43\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 21\n  }\n]",
       "form": []
     },
     "tests": []
@@ -369,6 +369,44 @@
     "body": {
       "type": "json",
       "raw": "{\n  \"name\": \"Roupa de encolhimento\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "f2326ee8-7cf1-4b26-988e-5adec6768f80",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/sales",
+    "url": "http://localhost:3001/sales",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-03-23T13:12:28.955Z",
+    "modified": "2023-03-23T17:36:32.452Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 3\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 18\n  }\n]",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "7841025e-302c-4d7b-a659-530ec752a2d6",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/sales",
+    "url": "http://localhost:3001/sales",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2023-03-23T17:35:31.125Z",
+    "modified": "2023-03-23T17:35:31.125Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 3\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 18\n  }\n]",
       "form": []
     },
     "tests": []

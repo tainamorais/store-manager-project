@@ -1,4 +1,5 @@
 const saleService = require('../services/sales.service');
+const errorMap = require('../utils/errorMap');
 
 const findAll = async (_req, res) => {
   const sales = await saleService.findAll();
@@ -18,17 +19,15 @@ const findById = async (req, res) => {
   res.status(200).json(sale);
 };
 
-// Função incompleta: trabalhando no requisito 06 (assistindo vídeos)
-// const create = async (req, res) => {
-//   const { sales } = req.body;
+const create = async (req, res) => {
+  const sales = req.body;
+  
+  // const newSales = await saleService.create(sales);
+  const { type, message } = await saleService.create(sales);
 
-//   // const { type, message } = await saleService.create({ name });
+  if (type) return res.status(errorMap.mapError(type)).json({ message });
 
-//   // if (type) return res.status(errorMap.mapError(type)).json({ message });
+  return res.status(201).json(message);
+};
 
-//   const result = await saleService.create(sales);
-
-//   return res.status(201).json(result);
-// };
-
-module.exports = { findAll, findById };
+module.exports = { findAll, findById, create };
