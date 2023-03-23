@@ -30,4 +30,16 @@ const create = async (req, res) => {
   return res.status(201).json(message);
 };
 
-module.exports = { findAll, findById, create };
+const remove = async (req, res) => {
+  const { id } = req.params;
+
+  const { type, message } = await saleService.remove(Number(id));
+
+  // Captura código do erro e retorna a mensagem cadastrada em service
+  if (type) return res.status(errorMap.mapError(type)).json({ message });
+
+  // não retorna nada de mensagem - usar end para finalizar
+  return res.status(204).end();
+};
+
+module.exports = { findAll, findById, create, remove };

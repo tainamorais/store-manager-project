@@ -47,4 +47,22 @@ const create = async (sales) => {
   // return ({ type: null, message: { id: newSaleId, itemsSold: newSalesResolvedPromises } });
 };
 
-module.exports = { findAll, findById, create };
+const remove = async (id) => {
+  // Necessário consultar no DB a existência do id
+  const isSaleIdValid = await saleModel.findById(id);
+  
+  // Essa função retorna array. Se não existe, é um array vazio, portanto, não pode ser undefined.
+  // console.log(isSaleIdValid);
+
+  // Caso não exista:
+  if (isSaleIdValid.length === 0) {
+    return { type: 'NOT_FOUND', message: 'Sale not found' };
+  }
+
+  await saleModel.remove(id);
+  await saleModel.removeGeneratedSale(id);
+
+  return ({ type: null, message: '' });
+};
+
+module.exports = { findAll, findById, create, remove };

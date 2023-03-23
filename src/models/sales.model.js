@@ -51,7 +51,25 @@ const create = async (saleId, productId, quantity) => {
   });
 };
 
-module.exports = { findAll, findById, generateSale, create };
+const removeGeneratedSale = async (id) => {
+  const [result] = await connection.execute(
+    'DELETE FROM StoreManager.sales WHERE id = ?', [id],
+  );
+  // console.log usado para ver retorno da função para realizar teste
+  // console.log(result);
+  return result;
+};
+
+const remove = async (id) => {
+  const [result] = await connection.execute(
+    'DELETE FROM StoreManager.sales_products WHERE sale_id = ?', [id],
+  );
+  // console.log usado para ver retorno da função para realizar teste
+  // console.log(result);
+  return result;
+};
+
+module.exports = { findAll, findById, generateSale, create, removeGeneratedSale, remove };
 
 // inserção
 /*
