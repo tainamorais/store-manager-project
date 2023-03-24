@@ -65,4 +65,37 @@ const remove = async (id) => {
   return ({ type: null, message: '' });
 };
 
-module.exports = { findAll, findById, create, remove };
+// Quase mesma estrutura do create, retirando e alterando apenas alguns itens
+const update = async (saleId, sales) => {
+  const error = validator.createSaleValidator(sales);
+  if (error.type) return error;
+
+  // 1º passo: Achar a venda no DB. Caso inexistente, retornar erro. Funcao ja criada em delete.
+  const isSaleIdValid = await saleModel.findById(saleId);
+  if (isSaleIdValid.length === 0) {
+    return { type: 'NOT_FOUND', message: 'Sale not found' };
+  }
+
+  // Localizar dados dos produtos no DB, assim como feito em create sale
+  // Se existir algum id de produto inexistente no DB, retorna undefined
+  const salesData = sales.map((sale) => productModel.findById(sale.productId));
+  const resultSalesData = await Promise.all(salesData);
+  // console.log(salesData);
+
+  // Verificar se nos produtos retornados na funcao anterior tem algum undefined
+  // Se tiver algum undefined, retorna erro de not found
+  const checkSaleId = resultSalesData.some((value) => typeof value === 'undefined');
+  if (checkSaleId) return ({ type: 'NOT_FOUND', message: 'Product not found' });
+
+  // Depois de tudo ok em validacoes de erros, map em cada produto e chamar funcao model de update
+  const newSalesPromises = sales
+    .map(({ productId, quantity }) => saleModel.update(saleId, productId, quantity));
+  await Promise.all(newSalesPromises);
+
+  // Assim como em create, fazer a estrutura de retorno dos produtos atualizados, conforme readme
+  const objectSale = sales.map((sale) => ({ productId: sale.productId, quantity: sale.quantity }));
+
+  return ({ type: null, message: { saleId, itemsUpdated: objectSale } });
+};
+
+module.exports = { findAll, findById, create, remove, update };

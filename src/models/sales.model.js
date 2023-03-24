@@ -70,7 +70,27 @@ const remove = async (id) => {
   return result;
 };
 
-module.exports = { findAll, findById, generateSale, create, removeGeneratedSale, remove };
+// Tentando fazer update de sales...
+const update = async (saleId, productId, quantity) => {
+  await connection.execute(
+    'UPDATE StoreManager.sales_products SET quantity = ? WHERE sale_id = ? AND product_id = ?',
+    [quantity, saleId, productId],
+  );
+  // console.log usado para ver retorno da função para realizar teste
+  // console.log(sale);
+  // return (sale);
+  return ({
+    saleId,
+    itemsUpdated: [
+      {
+        productId,
+        quantity,
+      },
+    ],
+  });
+};
+
+module.exports = { findAll, findById, generateSale, create, removeGeneratedSale, remove, update };
 
 // inserção
 /*

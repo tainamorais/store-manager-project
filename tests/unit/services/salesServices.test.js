@@ -30,15 +30,6 @@ const sale = [
   }
 ];
 
-const ResultSetHeader = {
-  fieldCount: 0,
-  affectedRows: 1,
-  insertId: 0,
-  info: '',
-  serverStatus: 2,
-  warningStatus: 0
-};
-
 const createdSale = {
   id: 5,
   itemsSold: [

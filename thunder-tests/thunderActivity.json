@@ -216,9 +216,14 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-03-22T17:49:00.856Z",
-    "modified": "2023-03-23T20:08:28.756Z",
+    "modified": "2023-03-24T12:37:19.290Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 4\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 0\n  }\n]",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -230,12 +235,12 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-03-22T17:49:40.593Z",
-    "modified": "2023-03-22T17:49:40.593Z",
+    "modified": "2023-03-24T12:38:18.455Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Cálice de fogo\"\n}",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 10\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 50\n  }\n]",
       "form": []
     },
     "tests": []
@@ -287,12 +292,12 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-03-22T18:01:42.389Z",
-    "modified": "2023-03-23T21:19:10.426Z",
+    "modified": "2023-03-24T12:38:34.564Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 7\n  }\n]",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 10\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 50\n  }\n]",
       "form": []
     },
     "tests": []
@@ -575,6 +580,44 @@
     "modified": "2023-03-23T20:08:59.390Z",
     "headers": [],
     "params": [],
+    "tests": []
+  },
+  {
+    "_id": "9a6b42e8-004e-4f44-bb7b-eaba241e4b0c",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/sales/",
+    "url": "http://localhost:3001/sales/",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2023-03-24T12:41:35.228Z",
+    "modified": "2023-03-24T12:41:35.228Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 10\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 50\n  }\n]",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "c2fd80aa-8a84-429e-a5ca-f51f5cd94b6f",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3001/sales/1",
+    "url": "http://localhost:3001/sales/1",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2023-03-24T12:41:45.736Z",
+    "modified": "2023-03-24T12:48:19.075Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 11\n  },\n  {\n    \"productId\": 5,\n    \"quantity\": 55\n  }\n]",
+      "form": []
+    },
     "tests": []
   }
 ]

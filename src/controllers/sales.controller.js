@@ -42,4 +42,16 @@ const remove = async (req, res) => {
   return res.status(204).end();
 };
 
-module.exports = { findAll, findById, create, remove };
+const update = async (req, res) => {
+  const { id } = req.params;
+  const sales = req.body;
+
+  const { type, message } = await saleService.update(Number(id), sales);
+
+  // Captura código do erro e retorna a mensagem cadastrada em service
+  if (type) return res.status(errorMap.mapError(type)).json({ message });
+
+  res.status(200).json(message);
+};
+
+module.exports = { findAll, findById, create, remove, update };
