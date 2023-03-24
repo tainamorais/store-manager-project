@@ -29,6 +29,7 @@ const generateSale = async () => {
   const [createdSale] = await connection.execute(
     'INSERT INTO StoreManager.sales (date) VALUES (NOW())',
   );
+  // console.log(createdSale.insertId);
   return createdSale.insertId;
 };
 

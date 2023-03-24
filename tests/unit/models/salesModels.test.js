@@ -29,6 +29,25 @@ const sale = [
   }
 ];
 
+const ResultSetHeader = {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 0,
+  info: '',
+  serverStatus: 2,
+  warningStatus: 0
+};
+
+const createdSale = {
+  id: 5,
+  itemsSold: [
+    {
+      productId: 1,
+      quantity: 7,
+    },
+  ],
+};
+
 describe('Testando a camada model de vendas', function () {
 
   describe('Testando as funções GET relacionadas a vendas', function () {
@@ -45,6 +64,37 @@ describe('Testando a camada model de vendas', function () {
       expect(result).to.deep.equal(sale);
     });
 
+  });
+
+  describe('Testando as funções DELETE relacionadas a vendas', function () {
+
+    it('Deletando uma venda do DB através de seu id (funcao remove)', async function () {
+      sinon.stub(connection, 'execute').resolves([ResultSetHeader]);
+      const result = await saleModel.remove(2);
+      expect(result.affectedRows).to.be.equal(1);
+    });
+
+    it('Deletando uma venda do DB através de seu id (funcao removeGeneratedSale)', async function () {
+      sinon.stub(connection, 'execute').resolves([ResultSetHeader]);
+      const result = await saleModel.removeGeneratedSale(2);
+      expect(result.affectedRows).to.be.equal(1);
+    });
+
+  });
+
+  describe('Testando as funções POST relacionadas a vendas', function () {
+
+    it('Criando uma nova venda e inserindo no DB (funcao generateSale)', async function () {
+      sinon.stub(connection, 'execute').resolves([{ insertId: 4 }]);
+      const result = await saleModel.generateSale();
+      expect(result).to.be.equal(4);
+    });
+
+    it('Criando uma nova venda e inserindo no DB (funcao create)', async function () {
+      sinon.stub(connection, 'execute').resolves(5);
+      const result = await saleModel.create(5, 1, 7);
+      expect(result).to.deep.equal(createdSale);
+    });
   });
 
   afterEach(function () {

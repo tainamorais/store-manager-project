@@ -22,7 +22,7 @@ const jsonInvalidProductName = { type: "INVALID_VALUE", message: '"name" length 
 const jsonNoFieldProductName = { type: "REQUIRED_VALUE", message: '"name" is required' };
 
 const jsonOkDeletedProduct = { type: null, message: "" };
-const jsonInvalidProductId = { type: "NOT_FOUND", message: "Product not found" }
+const jsonInvalidProductId = { type: "NOT_FOUND", message: "Product not found" };
 
 describe('Testando a camada controller de produtos', function () {
 
